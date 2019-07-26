@@ -26,6 +26,7 @@
 <script>
 import db from '@/firebase.js'
 import Room from '@/components/roomCard.vue'
+
 export default {
   name: 'RoomPage',
   data () {
@@ -50,7 +51,9 @@ export default {
           }
         },
         creator: this.playerId,
-        status: 'pending'
+        status: 'pending',
+        messages: [],
+        questions: []
       })
       this.roomName = ''
     }
@@ -59,9 +62,7 @@ export default {
     this.playerId = localStorage.getItem('playerId')
     this.playerName = localStorage.getItem('name')
     // this.bgsong.play()
-    // let audio = new Audio(song)
-    // console.log(audio)
-    // audio.play()
+    
     if (!localStorage.getItem('playerId')) {
       this.$router.push(`/`)
     }
