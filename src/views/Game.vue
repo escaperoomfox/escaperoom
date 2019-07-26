@@ -2,7 +2,7 @@
   <div v-if="!isLoading" class="row" :class="layout">
     <div class="col-3"></div>
     <!-- introduction -->
-    <div v-if="isIntro" class="col-6" >
+    <div v-if="isIntro && !isEscaped" class="col-6" >
       <h1>
         <u>introduction</u>
       </h1>
@@ -23,7 +23,7 @@
     </div>
     <!-- game play interface -->
     <div
-      v-if="!isIntro"
+      v-if="!isIntro && !isEscaped"
       class="col-6"
       style="display: flex; flex-direction: column; align-content: center;"
     >
@@ -40,6 +40,7 @@
         >{{answer}}</button>
       </div>
     </div>
+    <div v-if="isEscaped" class="col-6" :class="layout"></div>
     <div class="col-3"></div>
   </div>
 </template>
@@ -58,7 +59,8 @@ export default {
       index: 0,
       pick: "",
       isIntro: true,
-      layout: "escapeIntro"
+      layout: "escapeIntro",
+      isEscaped: false
     };
   },
   components: {
@@ -91,7 +93,14 @@ export default {
           this.index++;
           this.layout = `escape${this.index}`
         } else {
-          alert("you've been passed");
+          this.layout = `escaped`
+          this.isEscaped = true 
+          this.$swal({
+            title: 'Congrats !',
+            type: 'success',
+            text: "you've been escaped"
+          })
+          
         }
       } else {
         console.log("salah");
@@ -117,19 +126,24 @@ export default {
   background-size: cover;
 }
 .escape1{
-  background-image: url('../assets/escape.jpg');
+  background-image: url('../assets/escape-1.jpg');
   background-size: cover;
+  background-position-y: -200px;
 }
 .escape2{
-  background-image: url('../assets/escape-0.jpg');
+  background-image: url('../assets/escape-2.jpg');
   background-size: cover;
 }
 .escape3{
-  background-image: url('../assets/escape.jpg');
+  background-image: url('../assets/escape-3.png');
   background-size: cover;
 }
 .escape4{
-  background-image: url('../assets/escape-0.jpg');
+  background-image: url('../assets/escape-4.jpg');
+  background-size: cover;  
+}
+.escaped{
+  background-image: url('../assets/escaped.jpg');
   background-size: cover;  
 }
 .quest {
