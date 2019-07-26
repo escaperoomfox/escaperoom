@@ -18,15 +18,15 @@
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 // import draggable from 'vuedraggable';
-import register from '@/components/register.vue';
+import register from '@/components/register.vue'
 export default {
   name: 'home',
   components: {
     register
   },
-  created() {
+  created () {
     if (localStorage.getItem('name') && localStorage.getItem('playerId')) {
-      this.$router.push('/rooms');
+      this.$router.push('/rooms')
     }
   },
   data () {
@@ -34,8 +34,7 @@ export default {
     }
   },
   methods: {
-    
+
   }
 }
 </script>
-

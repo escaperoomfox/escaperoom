@@ -3,7 +3,7 @@
     <b-form @submit.prevent="onSubmit" v-if="show">
       <b-row style="height:100vh">
         <b-col>
-          <h1 style="font-family: Nosifer">ESCAPE ROOMMM</h1><br>   
+          <h1 style="font-family: Nosifer">ESCAPE ROOMMM</h1><br>
           <b-form-group id="input-group-1" label-for="input-1">
             <img src="https://media2.giphy.com/media/4f4K0enrytXqM/source.gif" style="max-width: 350px; border-radius: 10px">
             <b-form-input
@@ -22,22 +22,21 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'register',
   data () {
     return {
       form: {
-        name: '',
+        name: ''
       },
       show: true
     }
   },
   methods: {
     onSubmit () {
-      this.$store.commit('register', this.form.name);
-      this.form.name = '';
-      this.$router.push('/rooms');
+      this.$store.commit('register', this.form.name)
+      this.form.name = ''
+      this.$router.push('/rooms')
     }
   }
 }

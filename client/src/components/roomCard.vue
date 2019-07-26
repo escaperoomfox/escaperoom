@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-card v-if="Object.keys(room.players).includes(playerId)" :title='room.title' :sub-title="room.status" style="background-color:#ADFF2F">
+        <b-card v-if="Object.keys(room.players).includes(playerId)" :title='room.title' :sub-title="room.status" style="background-color: red">
             {{playerNumbers}}
             <b-card-text v-for='(player,index) in players' :key="index">
                 player{{index+1}}: {{room.players[player].name}}, <b v-if="player === room.creator">(admin)</b>

@@ -33,5 +33,5 @@ export default new Router({
       name: 'games',
       component: Games
     }
-]
+  ]
 })
