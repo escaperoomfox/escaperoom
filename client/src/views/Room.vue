@@ -1,16 +1,17 @@
 <template>
   <div class="mt-5" style="height:100vh;">
     <div>
-      <h3>Escape from this room.... {{playerId}}</h3>
+      <h4 style="font-family: Nosifer">Dare to join?</h4>
+      <p><strong>{{playerId}}</strong></p>
       <div>
         <img
-          src="https://media0.giphy.com/media/26ufaecf1f8TCqGty/giphy.gif" style="height: 20%; width: 20%"
+          src="https://media0.giphy.com/media/26ufaecf1f8TCqGty/giphy.gif" style="max-width: 350px; border-radius: 10px"
         >
       </div>
     </div>
     <div >
-      <input placeholder="Room Name" v-model="roomName" class="my-4 mx-3">
-      <b-button @click="createRoom">create Room</b-button>
+      <b-form-input v-model="roomName" placeholder="Room name. . ." style="margin: 10px auto; width: 350px; font-family: Butcherman"></b-form-input>
+      <b-button @click="createRoom">Create room</b-button>
     </div>
     <div style="height:100vh; background-color:#00000">
       <div class="container">
